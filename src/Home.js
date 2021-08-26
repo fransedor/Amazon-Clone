@@ -10,7 +10,7 @@ function Home() {
             </div>
             <div className="home__row">
                 <Product 
-                id = "18017004"
+                id = "15409877"
                 title="The Lean Startup" 
                 price={29.99} 
                 image="https://cf.shopee.co.id/file/81633062d766e8f9874c9ef7b4ee1734" 
