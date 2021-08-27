@@ -1,17 +1,55 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Login.css';
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAEYpFZM99UVO4c9n39M99cMqZV5fMc75k",
+    authDomain: "clone-4ba78.firebaseapp.com",
+    projectId: "clone-4ba78",
+    storageBucket: "clone-4ba78.appspot.com",
+    messagingSenderId: "240408715611",
+    appId: "1:240408715611:web:c35bb759fa58cec0347a7e",
+    measurementId: "G-MZF6W4FEL4"
+  };
+
+initializeApp(firebaseConfig);
+
+getFirestore();
 
 function Login() {
+    const history = useHistory();
+    
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const signIn = (e) => {
         e.preventDefault();
-        // firebase login
-    } 
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, pass) 
+        .then((auth) => {
+            // successfully login user
+            if (auth) {
+                history.push('/')
+            }
+        })
+        .catch(error => alert(error.message)) 
+    }
+              
+    
     const register = (e) => {
         e.preventDefault();
-
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email,pass)
+            .then((auth) => {
+                // successfully create a new user
+                console.log(auth);
+                if (auth) {
+                    history.push('/')
+                }
+            })
+            .catch(error => alert(error.message))
         // firebase register
     }
 
