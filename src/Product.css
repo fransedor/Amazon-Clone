@@ -24,6 +24,10 @@
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
 }
+.product > button:hover {
+    cursor: pointer;
+    background-color: #cd9042;
+}
 .product__info {
     height: 100px;
     margin-bottom: 15px;
@@ -31,4 +35,19 @@
 }
 .product__price {
     margin-top: 5px;
+}
+.product__added {
+    background-color: white;
+    display: flex;
+    color: black;
+    position: fixed;
+    width: 200px;
+    top: 70px;
+    right: 15px;
+    z-index: 50;
+    border-radius: 8px;
+}
+.product__added img {
+    width: 50px;
+    object-fit: contain;
 }

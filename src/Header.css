@@ -40,6 +40,9 @@
     margin: 0 10px;
     color: white;
 }
+.header__option:hover {
+    color: #f0c14b;
+}
 .header__optionLineOne {
     font-size: 10px;
 }
@@ -54,4 +57,7 @@
 }
 .header__basketCount {
     margin: 0 10px;
+}
+.header__optionBasket:hover {
+    color: #f0c14b;
 }

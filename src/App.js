@@ -7,6 +7,7 @@ import Login from './Login';
 import { useEffect } from 'react';
 import {getAuth, onAuthStateChanged} from 'firebase/auth';
 import { useStateValue } from './StateProvider';
+import Payment from './Payment';
 
 function App() {
   const [{user}, dispatch] = useStateValue();
@@ -14,7 +15,6 @@ function App() {
   useEffect(() => {
     const auth = getAuth();
     auth.onAuthStateChanged( authUser => {
-      console.log('THE USER IS ', authUser.email);
 
       if (authUser) {
         dispatch({
@@ -40,6 +40,10 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           <Route path="/">
             <Header />

@@ -11,6 +11,7 @@ function Header() {
 
     const handleAuthentication = () => {
         if (user) {
+            console.log(user);
             const auth = getAuth();
             auth.signOut();
         }
@@ -29,7 +30,7 @@ function Header() {
                 <SearchIcon className = "header__searchIcon" />
             </div>
             <div className="header__nav">               
-                <Link to={!user && "/login"}>
+                <Link to= {!user && "/login"}>
                     <div onClick={handleAuthentication} className="header__option">
                         <span className="header__optionLineOne">Hello {user ? user.email : 'Guest'}</span> 
                         <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>                         

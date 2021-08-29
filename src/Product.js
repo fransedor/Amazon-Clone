@@ -16,6 +16,8 @@ function Product({ id, title, image, price, rating}) {
                 rating: rating
             }
         })
+        
+        
     }
     return (
         <div className= "product">
@@ -35,6 +37,7 @@ function Product({ id, title, image, price, rating}) {
             <img src={image} />
 
             <button onClick={addToBasket}>Add to Basket</button>
+            
         </div>
     )
 }
